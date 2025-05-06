@@ -18,27 +18,45 @@ namespace Lab2.Documentn
         public string FilePath { get; set; }
         public DocumentType Type { get; set; }
         public readonly DocumentHistory _history = new DocumentHistory();
-        public Document(DocumentType type)
+        public UserRole AccessRole { get; set; } // Новое поле для прав доступа
+
+        public Document(DocumentType type, UserRole accessRole = UserRole.Viewer)
         {
             _fragments = new List<ITextFragment>();
             FilePath = string.Empty;
             Type = type;
+            AccessRole = accessRole; // Устанавливаем права доступа
         }
+
         public void AppendText(string text)
         {
+            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            {
+                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+            }
             var beforeContent = GetOriginalText();
             _history.AddEntry("APPEND", beforeContent);
             var newFragments = TextParser.Parse(text, Type);
             _fragments.AddRange(newFragments);
-            Notify($"!!! Document updated: text appended. !!!");
+            Notify($"!!! Документ обновлён: текст добавлен. !!!");
         }
+
         public void AppendTextNoNotify(string text)
         {
+            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            {
+                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+            }
             var newFragments = TextParser.Parse(text, Type);
             _fragments.AddRange(newFragments);
         }
+
         public void InsertText(int charPosition, string text)
         {
+            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            {
+                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+            }
             if (charPosition < 0 || charPosition > GetTextWithoutMarkersLength())
             {
                 throw new ArgumentOutOfRangeException("Позиция символа вне допустимого диапазона.");
@@ -67,7 +85,7 @@ namespace Lab2.Documentn
                     {
                         _fragments.InsertRange(i, newFragments);
                         _history.AddEntry("INSERT", beforeContent);
-                        Notify($"!!! Документ обновлен: Текст вставлен. !!!");
+                        Notify($"!!! Документ обновлён: текст вставлен. !!!");
                         return;
                     }
                     else if (charPosition > currentPos && charPosition < currentPos + fragmentLength)
@@ -82,12 +100,10 @@ namespace Lab2.Documentn
 
                         if (_fragments[i] is TextDecorator decorator)
                         {
-                            // Берем внутренний текст без маркеров
                             string innerText = decorator._fragment.GetOriginalText();
                             string leftInner = innerText.Substring(0, splitPos);
                             string rightInner = innerText.Substring(splitPos);
 
-                            // Создаем новые фрагменты с тем же декоратором
                             if (decorator is BoldDecorator)
                             {
                                 leftFragment = new BoldDecorator(new PlainTextFragment(leftInner));
@@ -105,14 +121,12 @@ namespace Lab2.Documentn
                             }
                             else
                             {
-                                // Если вдруг появятся другие декораторы, кидаем ошибку или обрабатываем как plain
                                 leftFragment = new PlainTextFragment(leftInner);
                                 rightFragment = new PlainTextFragment(rightInner);
                             }
                         }
                         else
                         {
-                            // Для обычного текста без декораторов
                             string originalText = _fragments[i].GetOriginalText();
                             string textWithoutMarkers = RemoveMarkers(originalText);
                             int plainTextPos = 0;
@@ -125,7 +139,6 @@ namespace Lab2.Documentn
                                 }
                                 else if (originalText[j] == '*')
                                 {
-                                    // Пропускаем одиночный *
                                 }
                                 else
                                 {
@@ -139,43 +152,44 @@ namespace Lab2.Documentn
                             rightFragment = new PlainTextFragment(rightText);
                         }
 
-                        // Заменяем текущий фрагмент на левую часть
                         _fragments[i] = leftFragment;
-                        // Вставляем новый текст
                         _fragments.InsertRange(i + 1, newFragments);
-                        // Добавляем правую часть, если она не пустая
                         if (!string.IsNullOrEmpty(rightFragment.GetOriginalText()))
                         {
                             _fragments.Insert(i + 1 + newFragments.Count, rightFragment);
                         }
 
                         _history.AddEntry("INSERT", beforeContent);
-                        Notify($"!!! Документ обновлен: Текст вставлен. !!!");
+                        Notify($"!!! Документ обновлён: текст вставлен. !!!");
                         return;
                     }
                     else if (charPosition == currentPos + fragmentLength)
                     {
                         _fragments.InsertRange(i + 1, newFragments);
                         _history.AddEntry("INSERT", beforeContent);
-                        Notify($"!!! Документ обновлен: Текст вставлен. !!!");
+                        Notify($"!!! Документ обновлён: текст вставлен. !!!");
                         return;
                     }
                     currentPos += fragmentLength;
                 }
             }
             _history.AddEntry("INSERT", beforeContent);
-            Notify($"!!! Документ обновлен: Текст вставлен. !!!");
+            Notify($"!!! Документ обновлён: текст вставлен. !!!");
         }
 
         public void DeleteText(int fragmentStart, int fragmentCount)
         {
+            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            {
+                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+            }
             if (fragmentStart < 0 || fragmentStart >= _fragments.Count || fragmentCount < 0 || fragmentStart + fragmentCount > _fragments.Count)
             {
-                throw new ArgumentOutOfRangeException("Invalid start or count.");
+                throw new ArgumentOutOfRangeException("Неверный старт или количество.");
             }
             var beforeContent = GetOriginalText();
             _fragments.RemoveRange(fragmentStart, fragmentCount);
-            Notify($"!!! Document updated: Some text deleted. !!!");
+            Notify($"!!! Документ обновлён: текст удалён. !!!");
             _history.AddEntry("DELETE", beforeContent);
         }
 
@@ -223,7 +237,6 @@ namespace Lab2.Documentn
 
         private string RemoveMarkers(string text)
         {
-            // Удаляем маркеры **, __, * из текста
             return text.Replace("**", "").Replace("__", "").Replace("*", "");
         }
 
@@ -243,56 +256,65 @@ namespace Lab2.Documentn
 
             foreach (var admin in UserManager.GetAdmins())
             {
-                // Чтобы избежать дублей, если админ уже подписан
                 if (!_observers.Contains(admin))
                 {
                     admin.Update($"[ADMIN OVERRIDE] {fullMessage}");
                 }
             }
         }
+
         public IEnumerable<DocumentSnapshot> GetHistory()
         {
             return _history.GetHistory();
         }
     }
+
     public class DocumentData
     {
         public DocumentType Type { get; set; }
         public string Content { get; set; }
+        public UserRole AccessRole { get; set; } // Новое поле для прав доступа
     }
 
     public static class DocumentManager
     {
+        private static IStorageStrategy _storageStrategy = new LocalFileStrategy();
+
         public static Document CreateNewDocument(DocumentType type)
         {
-            return new Document(type);
+            var accessRole = Session.CurrentUser?.Role ?? UserRole.Viewer;
+            return new Document(type, accessRole);
         }
+
         public static List<ITextFragment> Clipboard { get; set; } = new List<ITextFragment>();
 
         public static void DeleteDocument(string path)
         {
-            // Note: Deletion might need strategy-specific logic, but for simplicity:
             if (_storageStrategy is LocalFileStrategy && File.Exists(path))
             {
-                var document = OpenDocument(path).Result; // Use await in async context
-                document.Notify($"!!! Document deleted: {path} !!!");
+                var document = OpenDocument(path).Result;
+                document.Notify($"!!! Документ удалён: {path} !!!");
                 File.Delete(path);
             }
             else
             {
-                throw new NotSupportedException("Deletion only supported for local files in this implementation");
+                throw new NotSupportedException("Удаление поддерживается только для локальных файлов в этой реализации.");
             }
         }
 
-        private static IStorageStrategy _storageStrategy = new LocalFileStrategy();
         public static void SetStorageStrategy(IStorageStrategy strategy)
         {
             _storageStrategy = strategy;
         }
+
         public static async Task<Document> OpenDocument(string fileName)
         {
             var data = await _storageStrategy.LoadDocument(fileName);
-            var doc = new Document(data.Type);
+            var doc = new Document(data.Type, data.AccessRole);
+            if (Session.CurrentUser == null || Session.CurrentUser.Role < doc.AccessRole)
+            {
+                throw new UnauthorizedAccessException($"Недостаточно прав для открытия документа (требуется {doc.AccessRole}).");
+            }
             doc.AppendTextNoNotify(data.Content);
             doc.FilePath = fileName;
             return doc;
@@ -300,10 +322,20 @@ namespace Lab2.Documentn
 
         public static async Task SaveDocument(Document document, string fileName)
         {
-            var data = new DocumentData { Type = document.Type, Content = document.GetOriginalText() };
+            var data = new DocumentData { Type = document.Type, Content = document.GetOriginalText(), AccessRole = document.AccessRole };
             await _storageStrategy.SaveDocument(data, fileName);
             document.FilePath = fileName;
-            document.Notify($"!!! Document saved to: {fileName} !!!");
+            document.Notify($"!!! Документ сохранён в: {fileName} !!!");
+        }
+
+        public static void ChangeAccessRole(Document document, UserRole newRole)
+        {
+            if (Session.CurrentUser?.Role != UserRole.Admin)
+            {
+                throw new UnauthorizedAccessException("Только администратор может изменять права доступа.");
+            }
+            document.AccessRole = newRole;
+            document.Notify($"Права доступа изменены на {newRole} пользователем {Session.CurrentUser.Name}");
         }
     }
 }

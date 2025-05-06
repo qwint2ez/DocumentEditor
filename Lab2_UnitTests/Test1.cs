@@ -1,4 +1,7 @@
-﻿using System.Xml.Linq;
+﻿using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Lab2.Classes;
 using Lab2.Documentn;
 using Lab2.Enums;
@@ -9,17 +12,26 @@ namespace Lab2_UnitTests
     [TestClass]
     public class DocumentTests
     {
+        private User _adminUser;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _adminUser = new User("TestAdmin", UserRole.Admin);
+            Session.Login(_adminUser);
+        }
+
         [TestMethod]
         public void CreateDocument_PlainText_ShouldInitializeEmpty()
         {
-            var doc = new Document(DocumentType.PlainText);
+            var doc = new Document(DocumentType.PlainText, _adminUser.Role);
             Assert.AreEqual(string.Empty, doc.GetOriginalText());
         }
 
         [TestMethod]
         public void AppendText_ShouldAddContent()
         {
-            var doc = new Document(DocumentType.PlainText);
+            var doc = new Document(DocumentType.PlainText, _adminUser.Role);
             doc.AppendText("Hello");
             Assert.AreEqual("Hello", doc.GetOriginalText());
         }
@@ -27,7 +39,7 @@ namespace Lab2_UnitTests
         [TestMethod]
         public void InsertText_AtBeginning_ShouldModifyContent()
         {
-            var doc = new Document(DocumentType.PlainText);
+            var doc = new Document(DocumentType.PlainText, _adminUser.Role);
             doc.AppendText("World");
             doc.InsertText(0, "Hello ");
             Assert.AreEqual("Hello World", doc.GetOriginalText());
@@ -36,7 +48,7 @@ namespace Lab2_UnitTests
         [TestMethod]
         public void DeleteText_ShouldRemoveFragments()
         {
-            var doc = new Document(DocumentType.PlainText);
+            var doc = new Document(DocumentType.PlainText, _adminUser.Role);
             doc.AppendText("Hello World");
             doc.DeleteText(0, 1);
             Assert.AreEqual(string.Empty, doc.GetOriginalText());
@@ -45,15 +57,24 @@ namespace Lab2_UnitTests
         [TestMethod]
         public void SearchWord_ExistingWord_ShouldReturnPositions()
         {
-            var doc = new Document(DocumentType.PlainText);
+            var doc = new Document(DocumentType.PlainText, _adminUser.Role);
             doc.AppendText("Hello Hello");
             var positions = doc.SearchWord("Hello");
             Assert.AreEqual(2, positions.Count);
         }
     }
+
     [TestClass]
     public class DocumentManagerTests
     {
+        private User _adminUser;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            _adminUser = new User("TestAdmin", UserRole.Admin);
+            Session.Login(_adminUser);
+        }
 
         [TestMethod]
         public async Task SaveDocument_PlainText_ShouldCreateFile()
@@ -62,7 +83,7 @@ namespace Lab2_UnitTests
 
             string testFilePath = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString() + ".txt");
 
-            var doc = new Document(DocumentType.PlainText);
+            var doc = new Document(DocumentType.PlainText, _adminUser.Role);
             doc.AppendText("Test\nEND");
 
             await DocumentManager.SaveDocument(doc, testFilePath);
@@ -87,12 +108,12 @@ namespace Lab2_UnitTests
             var doc = await DocumentManager.OpenDocument(testFilePath);
 
             Assert.AreEqual("Test", doc.GetOriginalText());
-
             Assert.AreEqual(DocumentType.PlainText, doc.Type);
 
             File.Delete(testFilePath);
         }
     }
+
     [TestClass]
     public class DocumentHistoryTests
     {
@@ -113,6 +134,7 @@ namespace Lab2_UnitTests
             Assert.AreEqual(50, history.GetHistory().Count());
         }
     }
+
     [TestClass]
     public class TerminalSettingsTests
     {

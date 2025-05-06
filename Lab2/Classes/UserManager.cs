@@ -10,7 +10,7 @@ namespace Lab2.Classes
 {
     public static class UserManager
     {
-        private const string UsersFilePath = "D:\\OOP\\OOP_Labs-lab2\\Lab2\\UserData.json";
+        private const string UsersFilePath = "D:\\OOP\\DocumentEditor\\Lab2\\UserData.json";
         private static List<User> _users;
 
         static UserManager()

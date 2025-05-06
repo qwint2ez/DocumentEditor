@@ -33,21 +33,21 @@ namespace Lab2.Classes
                     }
                     break;
                 default:
-                    throw new ArgumentException("Unsupported file format");
+                    throw new ArgumentException("Неподдерживаемый формат файла");
             }
         }
 
         public async Task<DocumentData> LoadDocument(string fileName)
         {
             if (!File.Exists(fileName))
-                throw new FileNotFoundException("File not found");
+                throw new FileNotFoundException("Файл не найден");
 
             string format = Path.GetExtension(fileName).ToLower().TrimStart('.');
             switch (format)
             {
                 case "txt":
                     string txtContent = await File.ReadAllTextAsync(fileName);
-                    return new DocumentData { Type = DocumentType.PlainText, Content = txtContent };
+                    return new DocumentData { Type = DocumentType.PlainText, Content = txtContent, AccessRole = UserRole.Viewer }; // Для txt по умолчанию Viewer
                 case "json":
                     string json = await File.ReadAllTextAsync(fileName);
                     return JsonConvert.DeserializeObject<DocumentData>(json);
@@ -58,7 +58,7 @@ namespace Lab2.Classes
                         return (DocumentData)serializer.Deserialize(reader);
                     }
                 default:
-                    throw new ArgumentException("Unsupported file format");
+                    throw new ArgumentException("Неподдерживаемый формат файла");
             }
         }
     }

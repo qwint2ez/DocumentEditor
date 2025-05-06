@@ -62,3 +62,4 @@ D:\OOP\DocumentEditor\Lab2\obj\Debug\net9.0\refint\Lab2.dll
 D:\OOP\DocumentEditor\Lab2\obj\Debug\net9.0\Lab2.pdb
 D:\OOP\DocumentEditor\Lab2\obj\Debug\net9.0\Lab2.genruntimeconfig.cache
 D:\OOP\DocumentEditor\Lab2\obj\Debug\net9.0\ref\Lab2.dll
+D:\OOP\DocumentEditor\Lab2\obj\Debug\net9.0\Lab2.sourcelink.json

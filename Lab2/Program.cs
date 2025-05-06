@@ -14,7 +14,7 @@ class Program
     {
         if (doc != null && doc._fragments != null && doc._fragments.Count > 0)
         {
-            Console.WriteLine("Current fragments:");
+            Console.WriteLine("Текущие фрагменты:");
             for (int i = 0; i < doc._fragments.Count; i++)
             {
                 string fragmentText = doc._fragments[i].GetText();
@@ -27,14 +27,16 @@ class Program
         }
         else
         {
-            Console.WriteLine("No fragments available or no document loaded.");
+            Console.WriteLine("Нет доступных фрагментов или документ не загружен.");
         }
     }
+
     static private void PressAnyButton()
     {
-        Console.WriteLine("Press any key to continue...");
+        Console.WriteLine("Нажмите любую клавишу для продолжения...");
         Console.ReadKey();
     }
+
     static async Task Main(string[] args)
     {
         Document currentDocument = null;
@@ -43,10 +45,10 @@ class Program
 
         while (entry)
         {
-            Console.WriteLine("Select user to login:");
+            Console.WriteLine("Выберите пользователя для входа:");
             if (UserManager.Users.Count == 0)
             {
-                Console.WriteLine("No users available. Check UserData.json or configuration.");
+                Console.WriteLine("Пользователи недоступны. Проверьте UserData.json или конфигурацию.");
                 PressAnyButton();
                 return;
             }
@@ -55,18 +57,18 @@ class Program
             {
                 Console.WriteLine($"{i + 1}. {UserManager.Users[i].Name} ({UserManager.Users[i].Role})");
             }
-            Console.Write($"Enter choice (1-{UserManager.Users.Count}): ");
+            Console.Write($"Введите выбор (1-{UserManager.Users.Count}): ");
 
             if (int.TryParse(Console.ReadLine(), out int userChoice) && userChoice >= 1 && userChoice <= UserManager.Users.Count)
             {
                 Session.Login(UserManager.Users[userChoice - 1]);
-                Console.WriteLine($"Logged in as: {Session.CurrentUser.Name}");
+                Console.WriteLine($"Вход выполнен как: {Session.CurrentUser.Name}");
                 PressAnyButton();
                 entry = false;
             }
             else
             {
-                Console.WriteLine("Invalid choice. Try again.");
+                Console.WriteLine("Неверный выбор. Попробуйте снова.");
                 PressAnyButton();
                 Console.Clear();
             }
@@ -75,12 +77,12 @@ class Program
         while (running)
         {
             Console.Clear();
-            Console.WriteLine("Document Management System");
+            Console.WriteLine("Система управления документами");
             Console.WriteLine("--------------------------");
-            Console.WriteLine($"Current User: {Session.CurrentUser.Name} | Role: {Session.CurrentUser.Role}");
-            Console.WriteLine("Current Document: " + (currentDocument?.FilePath ?? "None"));
-            Console.WriteLine("Current Document type: " + (currentDocument != null ? currentDocument.Type.ToString() : "None"));
-            Console.WriteLine("Content:");
+            Console.WriteLine($"Текущий пользователь: {Session.CurrentUser.Name} | Роль: {Session.CurrentUser.Role}");
+            Console.WriteLine("Текущий документ: " + (currentDocument?.FilePath ?? "Отсутствует"));
+            Console.WriteLine("Тип текущего документа: " + (currentDocument != null ? currentDocument.Type.ToString() : "Отсутствует"));
+            Console.WriteLine("Содержимое:");
             if (currentDocument != null)
             {
                 string formattedText = TextFormatter.FormatText(currentDocument.GetDisplayText(), currentDocument.Type.ToString());
@@ -92,29 +94,30 @@ class Program
             }
             else
             {
-                Console.WriteLine("No content");
+                Console.WriteLine("Нет содержимого");
             }
-            Console.WriteLine("\nOptions:");
-            Console.WriteLine("1. Create New Document");
-            Console.WriteLine("2. Open Document");
-            Console.WriteLine("3. Append Text");
-            Console.WriteLine("4. Insert Text");
-            Console.WriteLine("5. Delete Text");
-            Console.WriteLine("6. Copy Text");
-            Console.WriteLine("7. Cut Text");
-            Console.WriteLine("8. Paste Text");
-            Console.WriteLine("9. Search Word");
-            Console.WriteLine("10. Save Document");
-            Console.WriteLine("11. Delete Document");
-            Console.WriteLine("12. Undo");
-            Console.WriteLine("13. Redo");
-            Console.WriteLine("14. Exit");
+            Console.WriteLine("\nОпции:");
+            Console.WriteLine("1. Создать новый документ");
+            Console.WriteLine("2. Открыть документ");
+            Console.WriteLine("3. Добавить текст");
+            Console.WriteLine("4. Вставить текст");
+            Console.WriteLine("5. Удалить текст");
+            Console.WriteLine("6. Копировать текст");
+            Console.WriteLine("7. Вырезать текст");
+            Console.WriteLine("8. Вставить текст");
+            Console.WriteLine("9. Поиск слова");
+            Console.WriteLine("10. Сохранить документ");
+            Console.WriteLine("11. Удалить документ");
+            Console.WriteLine("12. Отменить");
+            Console.WriteLine("13. Повторить");
+            Console.WriteLine("14. Выход");
             Console.WriteLine("=============================");
-            Console.WriteLine("15. Manage Users (Admin only)");
-            Console.WriteLine("16. Switch User");
-            Console.WriteLine("17. Terminal Settings");
-            Console.WriteLine("18. View Document History");
-            Console.Write("\nEnter your choice (1-18): ");
+            Console.WriteLine("15. Управление пользователями (только для Admin)");
+            Console.WriteLine("16. Сменить пользователя");
+            Console.WriteLine("17. Настройки терминала");
+            Console.WriteLine("18. Просмотр истории документа");
+            Console.WriteLine("19. Изменить права доступа (только для Admin)");
+            Console.Write("\nВведите ваш выбор (1-19): ");
 
             string choice = Console.ReadLine();
 
@@ -125,11 +128,11 @@ class Program
                     case "1":
                         if (!Session.PermissionStrategy.CanEdit())
                         {
-                            Console.WriteLine("You cant do this action with your role!");
+                            Console.WriteLine("Вы не можете выполнить это действие с вашей ролью!");
                             PressAnyButton();
                             break;
                         }
-                        Console.WriteLine("Select document type:");
+                        Console.WriteLine("Выберите тип документа:");
                         Console.WriteLine("1. PlainText");
                         Console.WriteLine("2. Markdown");
                         Console.WriteLine("3. RichText");
@@ -147,21 +150,21 @@ class Program
                                 docType = DocumentType.RichText;
                                 break;
                             default:
-                                Console.WriteLine("Invalid choice. Defaulting to PlainText.");
+                                Console.WriteLine("Неверный выбор. Установлен PlainText по умолчанию.");
                                 docType = DocumentType.PlainText;
                                 PressAnyButton();
                                 break;
                         }
                         currentDocument = DocumentManager.CreateNewDocument(docType);
-                        currentDocument.Notify("New document created!");
+                        currentDocument.Notify("Создан новый документ!");
                         currentDocument.Subscribe(Session.CurrentUser);
-                        Console.WriteLine($"New {docType} document created.");
+                        Console.WriteLine($"Создан новый документ {docType}.");
                         PressAnyButton();
                         break;
 
                     case "2":
-                        Console.WriteLine("Select storage type:");
-                        Console.WriteLine("1. Local File");
+                        Console.WriteLine("Выберите тип хранилища:");
+                        Console.WriteLine("1. Локальный файл");
                         Console.WriteLine("2. Supabase Cloud");
                         var storageChoice = Console.ReadLine();
 
@@ -170,33 +173,33 @@ class Program
                             if (storageChoice == "2")
                             {
                                 DocumentManager.SetStorageStrategy(new SupabaseStorageStrategy());
-                                Console.Write("Enter cloud file name (e.g., document.json): ");
+                                Console.Write("Введите имя файла в облаке (например, document.json): ");
                             }
                             else
                             {
                                 DocumentManager.SetStorageStrategy(new LocalFileStrategy());
-                                Console.Write("Enter local file path (e.g., doc.txt): ");
+                                Console.Write("Введите путь к локальному файлу (например, doc.txt): ");
                             }
 
                             string FileName = Console.ReadLine();
                             currentDocument = await DocumentManager.OpenDocument(FileName);
-                            Console.WriteLine($"Loaded: {FileName}");
+                            Console.WriteLine($"Загружен: {FileName}");
 
                             currentDocument.Subscribe(Session.CurrentUser);
-                            Console.WriteLine($"Type: {currentDocument.Type}");
-                            Console.WriteLine($"Content:\n{currentDocument.GetDisplayText()}");
+                            Console.WriteLine($"Тип: {currentDocument.Type}");
+                            Console.WriteLine($"Содержимое:\n{currentDocument.GetDisplayText()}");
                         }
                         catch (FileNotFoundException ex)
                         {
-                            Console.WriteLine($"Error: {ex.Message}");
+                            Console.WriteLine($"Ошибка: {ex.Message}");
                         }
                         catch (Postgrest.Exceptions.PostgrestException ex)
                         {
-                            Console.WriteLine($"Supabase error: {ex.Message}");
+                            Console.WriteLine($"Ошибка Supabase: {ex.Message}");
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"Error: {ex.Message}");
+                            Console.WriteLine($"Ошибка: {ex.Message}");
                         }
 
                         PressAnyButton();
@@ -205,11 +208,11 @@ class Program
                     case "3":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                         }
                         else
                         {
-                            Console.WriteLine("Enter text to append (use **bold**, __underline__, *italic*, #, ##, ###). Type 'END' on a new line to finish:");
+                            Console.WriteLine("Введите текст для добавления (используйте **bold**, __underline__, *italic*, #, ##, ###). Введите 'END' на новой строке для завершения:");
                             StringBuilder inputBuilder = new StringBuilder();
                             string line;
                             while ((line = Console.ReadLine()) != "END")
@@ -226,13 +229,13 @@ class Program
                     case "4":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                         }
                         else
                         {
-                            Console.Write("Enter character position to insert at (ignoring **, __, *): ");
+                            Console.Write("Введите позицию символа для вставки (игнорируя **, __, *): ");
                             int insertPos = int.Parse(Console.ReadLine());
-                            Console.Write("Enter text to insert (use **bold**, __underline__, *italic*): ");
+                            Console.Write("Введите текст для вставки (используйте **bold**, __underline__, *italic*): ");
                             string insertText = Console.ReadLine();
                             ICommand insertCommand = new InsertTextCommand(currentDocument, insertPos, insertText);
                             undoRedoManager.ExecuteCommand(insertCommand);
@@ -243,14 +246,14 @@ class Program
                     case "5":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                         }
                         else
                         {
                             DisplayFragments(currentDocument);
-                            Console.Write("Enter start fragment index to delete: ");
+                            Console.Write("Введите начальный индекс фрагмента для удаления: ");
                             int deleteStart = int.Parse(Console.ReadLine());
-                            Console.Write("Enter number of fragments to delete: ");
+                            Console.Write("Введите количество фрагментов для удаления: ");
                             int deleteCount = int.Parse(Console.ReadLine());
                             ICommand deleteCommand = new DeleteTextCommand(currentDocument, deleteStart, deleteCount);
                             undoRedoManager.ExecuteCommand(deleteCommand);
@@ -261,18 +264,18 @@ class Program
                     case "6":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                         }
                         else
                         {
                             DisplayFragments(currentDocument);
-                            Console.Write("Enter start fragment index to copy: ");
+                            Console.Write("Введите начальный индекс фрагмента для копирования: ");
                             int copyStart = int.Parse(Console.ReadLine());
-                            Console.Write("Enter number of fragments to copy: ");
+                            Console.Write("Введите количество фрагментов для копирования: ");
                             int copyCount = int.Parse(Console.ReadLine());
                             ICommand copyCommand = new CopyTextCommand(currentDocument, copyStart, copyCount);
                             undoRedoManager.ExecuteCommand(copyCommand);
-                            Console.WriteLine("Text copied to clipboard.");
+                            Console.WriteLine("Текст скопирован в буфер обмена.");
                         }
                         PressAnyButton();
                         break;
@@ -280,18 +283,18 @@ class Program
                     case "7":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                         }
                         else
                         {
                             DisplayFragments(currentDocument);
-                            Console.Write("Enter start fragment index to cut: ");
+                            Console.Write("Введите начальный индекс фрагмента для вырезания: ");
                             int cutStart = int.Parse(Console.ReadLine());
-                            Console.Write("Enter number of fragments to cut: ");
+                            Console.Write("Введите количество фрагментов для вырезания: ");
                             int cutCount = int.Parse(Console.ReadLine());
                             ICommand cutCommand = new CutTextCommand(currentDocument, cutStart, cutCount);
                             undoRedoManager.ExecuteCommand(cutCommand);
-                            Console.WriteLine("Text cut to clipboard.");
+                            Console.WriteLine("Текст вырезан в буфер обмена.");
                         }
                         PressAnyButton();
                         break;
@@ -299,36 +302,37 @@ class Program
                     case "8":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                         }
                         else
                         {
                             DisplayFragments(currentDocument);
-                            Console.Write("Enter fragment position to paste at: ");
+                            Console.Write("Введите позицию фрагмента для вставки: ");
                             int pastePos = int.Parse(Console.ReadLine());
                             ICommand pasteCommand = new PasteTextCommand(currentDocument, pastePos);
                             undoRedoManager.ExecuteCommand(pasteCommand);
-                            Console.WriteLine("Text pasted from clipboard.");
+                            Console.WriteLine("Текст вставлен из буфера обмена.");
                         }
                         PressAnyButton();
                         break;
+
                     case "9":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                         }
                         else
                         {
-                            Console.Write("Enter word to search (ignore **, __, *): ");
+                            Console.Write("Введите слово для поиска (игнорируя **, __, *): ");
                             string searchWord = Console.ReadLine();
                             List<int> positions = currentDocument.SearchWord(searchWord);
                             if (positions.Count > 0)
                             {
-                                Console.WriteLine($"Found '{searchWord}' at positions: {string.Join(", ", positions)}");
+                                Console.WriteLine($"Найдено '{searchWord}' в позициях: {string.Join(", ", positions)}");
                             }
                             else
                             {
-                                Console.WriteLine($"'{searchWord}' not found.");
+                                Console.WriteLine($"'{searchWord}' не найдено.");
                             }
                         }
                         PressAnyButton();
@@ -337,19 +341,19 @@ class Program
                     case "10":
                         if (!Session.PermissionStrategy.CanEdit())
                         {
-                            Console.WriteLine("You cant do this action with your role!");
+                            Console.WriteLine("Вы не можете выполнить это действие с вашей ролью!");
                             PressAnyButton();
                             break;
                         }
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded. Create or open a document first.");
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
                             PressAnyButton();
                             break;
                         }
 
-                        Console.WriteLine("Select storage type:");
-                        Console.WriteLine("1. Local File");
+                        Console.WriteLine("Выберите тип хранилища:");
+                        Console.WriteLine("1. Локальный файл");
                         Console.WriteLine("2. Supabase Cloud");
                         var storageChoice1 = Console.ReadLine();
 
@@ -358,23 +362,23 @@ class Program
                             if (storageChoice1 == "1")
                             {
                                 DocumentManager.SetStorageStrategy(new LocalFileStrategy());
-                                Console.Write("Enter local file name to save (e.g., doc.txt): ");
+                                Console.Write("Введите имя локального файла для сохранения (например, doc.txt): ");
                             }
                             else if (storageChoice1 == "2")
                             {
                                 DocumentManager.SetStorageStrategy(new SupabaseStorageStrategy());
-                                Console.Write("Enter cloud file name to save (e.g., document.json): ");
+                                Console.Write("Введите имя файла в облаке для сохранения (например, document.json): ");
                             }
                             else
                             {
-                                throw new ArgumentException("Invalid storage type");
+                                throw new ArgumentException("Неверный тип хранилища");
                             }
                             string FileName = Console.ReadLine();
                             await DocumentManager.SaveDocument(currentDocument, FileName);
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine($"Error: {ex.Message}");
+                            Console.WriteLine($"Ошибка: {ex.Message}");
                         }
 
                         PressAnyButton();
@@ -383,11 +387,11 @@ class Program
                     case "11":
                         if (!Session.PermissionStrategy.CanEdit())
                         {
-                            Console.WriteLine("You cant do this action with your role!");
+                            Console.WriteLine("Вы не можете выполнить это действие с вашей ролью!");
                             PressAnyButton();
                             break;
                         }
-                        Console.Write("Enter filename to delete: ");
+                        Console.Write("Введите имя файла для удаления: ");
                         string deletePath = Console.ReadLine();
                         if (File.Exists(deletePath))
                         {
@@ -396,11 +400,11 @@ class Program
                             {
                                 currentDocument = null;
                             }
-                            Console.WriteLine("Document deleted successfully.");
+                            Console.WriteLine("Документ успешно удалён.");
                         }
                         else
                         {
-                            Console.WriteLine("File does not exist.");
+                            Console.WriteLine("Файл не существует.");
                         }
                         PressAnyButton();
                         break;
@@ -408,40 +412,41 @@ class Program
                     case "12":
                         if (!Session.PermissionStrategy.CanEdit())
                         {
-                            Console.WriteLine("You cant do this action with your role!");
+                            Console.WriteLine("Вы не можете выполнить это действие с вашей ролью!");
                             PressAnyButton();
                             break;
                         }
                         undoRedoManager.Undo();
-                        Console.WriteLine("Undo performed.");
+                        Console.WriteLine("Отмена выполнена.");
                         PressAnyButton();
                         break;
 
                     case "13":
                         if (!Session.PermissionStrategy.CanEdit())
                         {
-                            Console.WriteLine("You cant do this action with your role!");
+                            Console.WriteLine("Вы не можете выполнить это действие с вашей ролью!");
                             PressAnyButton();
                             break;
                         }
                         undoRedoManager.Redo();
-                        Console.WriteLine("Redo performed.");
+                        Console.WriteLine("Повтор выполнен.");
                         PressAnyButton();
                         break;
 
                     case "14":
                         running = false;
-                        Console.WriteLine("Exiting program.");
+                        Console.WriteLine("Выход из программы.");
                         PressAnyButton();
                         break;
+
                     case "15":
                         if (!Session.PermissionStrategy.CanManageUsers())
                         {
-                            Console.WriteLine("Access denied!");
+                            Console.WriteLine("Доступ запрещён!");
                             PressAnyButton();
                             break;
                         }
-                        Console.WriteLine("Access granted!");
+                        Console.WriteLine("Доступ разрешён!");
                         Console.WriteLine("Список пользователей:");
                         for (int i = 0; i < UserManager.Users.Count; i++)
                         {
@@ -492,6 +497,7 @@ class Program
                         }
                         PressAnyButton();
                         break;
+
                     case "16":
                         currentDocument = null;
                         undoRedoManager = new UndoRedoManager();
@@ -501,29 +507,30 @@ class Program
                         while (entry)
                         {
                             Console.Clear();
-                            Console.WriteLine("Select user to login:");
+                            Console.WriteLine("Выберите пользователя для входа:");
                             for (int i = 0; i < UserManager.Users.Count; i++)
                             {
                                 Console.WriteLine($"{i + 1}. {UserManager.Users[i].Name} ({UserManager.Users[i].Role})");
                             }
-                            Console.Write("Enter choice (1-4): ");
+                            Console.Write("Введите выбор (1-4): ");
 
                             if (int.TryParse(Console.ReadLine(), out int newUserChoice) &&
                                 newUserChoice >= 1 &&
                                 newUserChoice <= UserManager.Users.Count)
                             {
                                 Session.Login(UserManager.Users[newUserChoice - 1]);
-                                Console.WriteLine($"Logged in as: {Session.CurrentUser.Name}");
+                                Console.WriteLine($"Вход выполнен как: {Session.CurrentUser.Name}");
                                 PressAnyButton();
                                 entry = false;
                             }
                             else
                             {
-                                Console.WriteLine("Invalid choice. Try again.");
+                                Console.WriteLine("Неверный выбор. Попробуйте снова.");
                                 PressAnyButton();
                             }
                         }
                         break;
+
                     case "17":
                         if (!Session.PermissionStrategy.CanView())
                         {
@@ -537,14 +544,14 @@ class Program
                     case "18":
                         if (currentDocument == null)
                         {
-                            Console.WriteLine("No document loaded!");
+                            Console.WriteLine("Документ не загружен!");
                             PressAnyButton();
                             break;
                         }
 
-                        Console.WriteLine("\nDocument History:");
+                        Console.WriteLine("\nИстория документа:");
                         Console.WriteLine("{0,-25} {1,-10} {2,-50}",
-                            "Timestamp", "Action", "Content Preview");
+                            "Время", "Действие", "Превью содержимого");
 
                         foreach (var entry1 in currentDocument.GetHistory())
                         {
@@ -556,15 +563,60 @@ class Program
                         PressAnyButton();
                         break;
 
+                    case "19":
+                        if (currentDocument == null)
+                        {
+                            Console.WriteLine("Документ не загружен. Сначала создайте или откройте документ.");
+                            PressAnyButton();
+                            break;
+                        }
+                        if (Session.CurrentUser.Role != UserRole.Admin)
+                        {
+                            Console.WriteLine("Только администратор может изменять права доступа!");
+                            PressAnyButton();
+                            break;
+                        }
+                        Console.WriteLine($"Текущие права доступа: {currentDocument.AccessRole}");
+                        Console.WriteLine("Выберите новые права доступа:");
+                        Console.WriteLine("1. Viewer");
+                        Console.WriteLine("2. Editor");
+                        Console.WriteLine("3. Auditor");
+                        Console.WriteLine("4. Admin");
+                        string roleChoice = Console.ReadLine();
+                        UserRole newRole;
+                        switch (roleChoice)
+                        {
+                            case "1":
+                                newRole = UserRole.Viewer;
+                                break;
+                            case "2":
+                                newRole = UserRole.Editor;
+                                break;
+                            case "3":
+                                newRole = UserRole.Auditor;
+                                break;
+                            case "4":
+                                newRole = UserRole.Admin;
+                                break;
+                            default:
+                                Console.WriteLine("Неверный выбор. Изменения не внесены.");
+                                PressAnyButton();
+                                continue;
+                        }
+                        DocumentManager.ChangeAccessRole(currentDocument, newRole);
+                        Console.WriteLine($"Права доступа изменены на: {newRole}");
+                        PressAnyButton();
+                        break;
+
                     default:
-                        Console.WriteLine("Invalid choice. Please enter a number between 1 and 14.");
+                        Console.WriteLine("Неверный выбор. Пожалуйста, введите число от 1 до 19.");
                         PressAnyButton();
                         break;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error: {ex.Message}");
+                Console.WriteLine($"Ошибка: {ex.Message}");
                 PressAnyButton();
             }
         }
