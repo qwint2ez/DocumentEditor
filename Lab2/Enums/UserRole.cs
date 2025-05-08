@@ -8,9 +8,9 @@ namespace Lab2.Enums
 {
     public enum UserRole
     {
-        Viewer,
-        Editor,
-        Admin,
-        Auditor
+        Viewer = 0,
+        Editor = 1,
+        Admin = 2,
+        Auditor = 3
     }
 }

@@ -30,7 +30,7 @@ namespace Lab2.Documentn
 
         public void AppendText(string text)
         {
-            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            if (!HasEditPermission())
             {
                 throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
             }
@@ -43,7 +43,7 @@ namespace Lab2.Documentn
 
         public void AppendTextNoNotify(string text)
         {
-            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            if (!HasEditPermission())
             {
                 throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
             }
@@ -53,7 +53,7 @@ namespace Lab2.Documentn
 
         public void InsertText(int charPosition, string text)
         {
-            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            if (!HasEditPermission())
             {
                 throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
             }
@@ -179,7 +179,7 @@ namespace Lab2.Documentn
 
         public void DeleteText(int fragmentStart, int fragmentCount)
         {
-            if (Session.CurrentUser == null || Session.CurrentUser.Role < AccessRole)
+            if (!HasEditPermission())
             {
                 throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
             }
@@ -267,13 +267,35 @@ namespace Lab2.Documentn
         {
             return _history.GetHistory();
         }
+
+        // Новая функция для проверки прав
+        private bool HasEditPermission()
+        {
+            if (Session.CurrentUser == null)
+            {
+                return false;
+            }
+
+            // Проверяем права: пользователь должен иметь роль не ниже требуемой
+            int userRoleValue = (int)Session.CurrentUser.Role;
+            int requiredRoleValue = (int)AccessRole;
+            return userRoleValue >= requiredRoleValue;
+        }
     }
 
     public class DocumentData
     {
+        [XmlElement("Type")]
+        [JsonProperty("Type")]
         public DocumentType Type { get; set; }
+
+        [XmlElement("Content")]
+        [JsonProperty("Content")]
         public string Content { get; set; }
-        public UserRole AccessRole { get; set; } // Новое поле для прав доступа
+
+        [XmlElement("AccessRole")]
+        [JsonProperty("AccessRole")]
+        public UserRole AccessRole { get; set; }
     }
 
     public static class DocumentManager
@@ -311,7 +333,8 @@ namespace Lab2.Documentn
         {
             var data = await _storageStrategy.LoadDocument(fileName);
             var doc = new Document(data.Type, data.AccessRole);
-            if (Session.CurrentUser == null || Session.CurrentUser.Role < doc.AccessRole)
+            Console.WriteLine($"[DEBUG] Загруженный AccessRole: {doc.AccessRole}"); // Отладочный вывод
+            if (Session.CurrentUser == null || (int)Session.CurrentUser.Role < (int)doc.AccessRole)
             {
                 throw new UnauthorizedAccessException($"Недостаточно прав для открытия документа (требуется {doc.AccessRole}).");
             }
