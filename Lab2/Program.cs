@@ -499,7 +499,12 @@ class Program
                         break;
 
                     case "16":
-                        currentDocument = null;
+                        if (currentDocument != null)
+                        {
+                            // Сбрасываем счётчик просмотров для предыдущего пользователя
+                            // (хотя это не обязательно, так как currentDocument будет null)
+                            currentDocument = null;
+                        }
                         undoRedoManager = new UndoRedoManager();
                         entry = true;
                         running = true;

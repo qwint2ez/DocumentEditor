@@ -18,14 +18,15 @@ namespace Lab2.Documentn
         public string FilePath { get; set; }
         public DocumentType Type { get; set; }
         public readonly DocumentHistory _history = new DocumentHistory();
-        public UserRole AccessRole { get; set; } // Новое поле для прав доступа
+        public UserRole AccessRole { get; set; }
+        private readonly Dictionary<User, int> _historyViewCount = new Dictionary<User, int>(); // Отслеживание просмотров истории
 
         public Document(DocumentType type, UserRole accessRole = UserRole.Viewer)
         {
             _fragments = new List<ITextFragment>();
             FilePath = string.Empty;
             Type = type;
-            AccessRole = accessRole; // Устанавливаем права доступа
+            AccessRole = accessRole;
         }
 
         public void AppendText(string text)
@@ -265,10 +266,27 @@ namespace Lab2.Documentn
 
         public IEnumerable<DocumentSnapshot> GetHistory()
         {
+            if (Session.CurrentUser != null)
+            {
+                // Увеличиваем счётчик просмотров для текущего пользователя
+                if (!_historyViewCount.ContainsKey(Session.CurrentUser))
+                {
+                    _historyViewCount[Session.CurrentUser] = 0;
+                }
+                _historyViewCount[Session.CurrentUser]++;
+
+                // Если это второй просмотр, очищаем историю
+                if (_historyViewCount[Session.CurrentUser] == 2)
+                {
+                    _history.ClearHistory();
+                    _historyViewCount[Session.CurrentUser] = 0; // Сбрасываем счётчик
+                    Console.WriteLine("[INFO] История изменений очищена.");
+                }
+            }
+
             return _history.GetHistory();
         }
 
-        // Новая функция для проверки прав
         private bool HasEditPermission()
         {
             if (Session.CurrentUser == null)
@@ -276,7 +294,6 @@ namespace Lab2.Documentn
                 return false;
             }
 
-            // Проверяем права: пользователь должен иметь роль не ниже требуемой
             int userRoleValue = (int)Session.CurrentUser.Role;
             int requiredRoleValue = (int)AccessRole;
             return userRoleValue >= requiredRoleValue;
@@ -317,6 +334,12 @@ namespace Lab2.Documentn
                 var document = OpenDocument(path).Result;
                 document.Notify($"!!! Документ удалён: {path} !!!");
                 File.Delete(path);
+                // Удаляем файл истории, если он существует
+                string historyPath = GetHistoryFilePath(path);
+                if (File.Exists(historyPath))
+                {
+                    File.Delete(historyPath);
+                }
             }
             else
             {
@@ -333,13 +356,18 @@ namespace Lab2.Documentn
         {
             var data = await _storageStrategy.LoadDocument(fileName);
             var doc = new Document(data.Type, data.AccessRole);
-            Console.WriteLine($"[DEBUG] Загруженный AccessRole: {doc.AccessRole}"); // Отладочный вывод
+            Console.WriteLine($"[DEBUG] Загруженный AccessRole: {doc.AccessRole}");
             if (Session.CurrentUser == null || (int)Session.CurrentUser.Role < (int)doc.AccessRole)
             {
                 throw new UnauthorizedAccessException($"Недостаточно прав для открытия документа (требуется {doc.AccessRole}).");
             }
             doc.AppendTextNoNotify(data.Content);
             doc.FilePath = fileName;
+
+            // Загружаем историю
+            string historyPath = GetHistoryFilePath(fileName);
+            await doc._history.LoadHistoryAsync(historyPath);
+
             return doc;
         }
 
@@ -348,6 +376,11 @@ namespace Lab2.Documentn
             var data = new DocumentData { Type = document.Type, Content = document.GetOriginalText(), AccessRole = document.AccessRole };
             await _storageStrategy.SaveDocument(data, fileName);
             document.FilePath = fileName;
+
+            // Сохраняем историю в отдельный файл
+            string historyPath = GetHistoryFilePath(fileName);
+            await document._history.SaveHistoryAsync(historyPath);
+
             document.Notify($"!!! Документ сохранён в: {fileName} !!!");
         }
 
@@ -359,6 +392,11 @@ namespace Lab2.Documentn
             }
             document.AccessRole = newRole;
             document.Notify($"Права доступа изменены на {newRole} пользователем {Session.CurrentUser.Name}");
+        }
+
+        private static string GetHistoryFilePath(string fileName)
+        {
+            return Path.ChangeExtension(fileName, ".history.json");
         }
     }
 }
