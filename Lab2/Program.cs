@@ -100,7 +100,7 @@ class Program
             Console.WriteLine("1. Создать новый документ");
             Console.WriteLine("2. Открыть документ");
             Console.WriteLine("3. Добавить текст");
-            Console.WriteLine("4. Вставить текст");
+            Console.WriteLine("4. Дополнить текст");
             Console.WriteLine("5. Удалить текст");
             Console.WriteLine("6. Копировать текст");
             Console.WriteLine("7. Вырезать текст");
