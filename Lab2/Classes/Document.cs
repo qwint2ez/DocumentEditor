@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Lab2.Interfaces;
 using Lab2.Classes;
 using Lab2.Enums;
 using Newtonsoft.Json;
-using System.Xml.Serialization;
-using System.Reflection.Metadata;
+using System.IO;
 
 namespace Lab2.Documentn
 {
@@ -18,22 +16,53 @@ namespace Lab2.Documentn
         public string FilePath { get; set; }
         public DocumentType Type { get; set; }
         public readonly DocumentHistory _history = new DocumentHistory();
-        public UserRole AccessRole { get; set; }
-        private readonly Dictionary<User, int> _historyViewCount = new Dictionary<User, int>(); // Отслеживание просмотров истории
+        private readonly Dictionary<User, UserRole> _filePermissions = new Dictionary<User, UserRole>();
+        private readonly Dictionary<User, int> _historyViewCount = new Dictionary<User, int>();
 
-        public Document(DocumentType type, UserRole accessRole = UserRole.Viewer)
+        public Document(DocumentType type, User creator)
         {
             _fragments = new List<ITextFragment>();
             FilePath = string.Empty;
             Type = type;
-            AccessRole = accessRole;
+            // Creator is Admin, others are Viewer
+            _filePermissions[creator] = UserRole.Admin;
+            foreach (var user in UserManager.Users)
+            {
+                if (user != creator && !_filePermissions.ContainsKey(user))
+                {
+                    _filePermissions[user] = UserRole.Viewer;
+                }
+            }
+        }
+
+        public Document(DocumentType type, Dictionary<string, UserRole> permissions = null)
+        {
+            _fragments = new List<ITextFragment>();
+            FilePath = string.Empty;
+            Type = type;
+            // Initialize permissions from saved data or set all as Viewer
+            if (permissions != null)
+            {
+                foreach (var user in UserManager.Users)
+                {
+                    string username = user.Name;
+                    _filePermissions[user] = permissions.ContainsKey(username) ? permissions[username] : UserRole.Viewer;
+                }
+            }
+            else
+            {
+                foreach (var user in UserManager.Users)
+                {
+                    _filePermissions[user] = UserRole.Viewer;
+                }
+            }
         }
 
         public void AppendText(string text)
         {
             if (!HasEditPermission())
             {
-                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+                throw new UnauthorizedAccessException("Недостаточно прав для редактирования файла.");
             }
             var beforeContent = GetOriginalText();
             _history.AddEntry("APPEND", beforeContent);
@@ -46,7 +75,7 @@ namespace Lab2.Documentn
         {
             if (!HasEditPermission())
             {
-                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+                throw new UnauthorizedAccessException("Недостаточно прав для редактирования файла.");
             }
             var newFragments = TextParser.Parse(text, Type);
             _fragments.AddRange(newFragments);
@@ -56,7 +85,7 @@ namespace Lab2.Documentn
         {
             if (!HasEditPermission())
             {
-                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+                throw new UnauthorizedAccessException("Недостаточно прав для редактирования файла.");
             }
             if (charPosition < 0 || charPosition > GetTextWithoutMarkersLength())
             {
@@ -182,7 +211,7 @@ namespace Lab2.Documentn
         {
             if (!HasEditPermission())
             {
-                throw new UnauthorizedAccessException($"Недостаточно прав для редактирования документа (требуется {AccessRole}).");
+                throw new UnauthorizedAccessException("Недостаточно прав для редактирования файла.");
             }
             if (fragmentStart < 0 || fragmentStart >= _fragments.Count || fragmentCount < 0 || fragmentStart + fragmentCount > _fragments.Count)
             {
@@ -249,17 +278,25 @@ namespace Lab2.Documentn
         public void Notify(string message)
         {
             var fullMessage = $"{message}\nFile: {FilePath}";
-
+            // Notify all subscribed observers
             foreach (var observer in _observers)
             {
                 observer.Update(fullMessage);
             }
-
+            // Notify all file-specific admins
+            foreach (var user in _filePermissions.Where(kvp => kvp.Value == UserRole.Admin).Select(kvp => kvp.Key))
+            {
+                if (!_observers.Contains(user))
+                {
+                    user.Update($"[FILE ADMIN] {fullMessage}");
+                }
+            }
+            // Notify all global admins/auditors
             foreach (var admin in UserManager.GetAdmins())
             {
-                if (!_observers.Contains(admin))
+                if (!_observers.Contains(admin) && !_filePermissions.ContainsKey(admin))
                 {
-                    admin.Update($"[ADMIN OVERRIDE] {fullMessage}");
+                    admin.Update($"[GLOBAL ADMIN] {fullMessage}");
                 }
             }
         }
@@ -268,61 +305,78 @@ namespace Lab2.Documentn
         {
             if (Session.CurrentUser != null)
             {
-                // Увеличиваем счётчик просмотров для текущего пользователя
                 if (!_historyViewCount.ContainsKey(Session.CurrentUser))
                 {
                     _historyViewCount[Session.CurrentUser] = 0;
                 }
                 _historyViewCount[Session.CurrentUser]++;
-
-                // Если это второй просмотр, очищаем историю
                 if (_historyViewCount[Session.CurrentUser] == 2)
                 {
                     _history.ClearHistory();
-                    _historyViewCount[Session.CurrentUser] = 0; // Сбрасываем счётчик
+                    _historyViewCount[Session.CurrentUser] = 0;
                     Console.WriteLine("[INFO] История изменений очищена.");
                 }
             }
-
             return _history.GetHistory();
         }
 
         private bool HasEditPermission()
         {
-            if (Session.CurrentUser == null)
+            if (Session.CurrentUser == null || !_filePermissions.ContainsKey(Session.CurrentUser))
             {
                 return false;
             }
+            UserRole role = _filePermissions[Session.CurrentUser];
+            return role == UserRole.Editor || role == UserRole.Admin;
+        }
 
-            int userRoleValue = (int)Session.CurrentUser.Role;
-            int requiredRoleValue = (int)AccessRole;
-            return userRoleValue >= requiredRoleValue;
+        public void SetUserPermission(User user, UserRole role)
+        {
+            if (Session.CurrentUser == null || _filePermissions[Session.CurrentUser] != UserRole.Admin)
+            {
+                throw new UnauthorizedAccessException("Только администратор файла может изменять права доступа.");
+            }
+            if (!_filePermissions.ContainsKey(user))
+            {
+                _filePermissions[user] = role;
+            }
+            else
+            {
+                _filePermissions[user] = role;
+            }
+            Notify($"Права пользователя {user.Name} для файла {FilePath} изменены на {role}.");
+        }
+
+        public UserRole GetUserPermission(User user)
+        {
+            return _filePermissions.ContainsKey(user) ? _filePermissions[user] : UserRole.Viewer;
+        }
+
+        public Dictionary<string, UserRole> GetPermissions()
+        {
+            return _filePermissions.ToDictionary(kvp => kvp.Key.Name, kvp => kvp.Value);
         }
     }
 
     public class DocumentData
     {
-        [XmlElement("Type")]
         [JsonProperty("Type")]
         public DocumentType Type { get; set; }
 
-        [XmlElement("Content")]
         [JsonProperty("Content")]
         public string Content { get; set; }
 
-        [XmlElement("AccessRole")]
-        [JsonProperty("AccessRole")]
-        public UserRole AccessRole { get; set; }
+        [JsonProperty("Permissions")]
+        public Dictionary<string, UserRole> Permissions { get; set; }
     }
 
     public static class DocumentManager
     {
         private static IStorageStrategy _storageStrategy = new LocalFileStrategy();
 
-        public static Document CreateNewDocument(DocumentType type)
+        public static Document CreateNewDocument(DocumentType type, User creator)
         {
-            var accessRole = Session.CurrentUser?.Role ?? UserRole.Viewer;
-            return new Document(type, accessRole);
+            return new Document(type, creator);
         }
 
         public static List<ITextFragment> Clipboard { get; set; } = new List<ITextFragment>();
@@ -334,11 +388,15 @@ namespace Lab2.Documentn
                 var document = OpenDocument(path).Result;
                 document.Notify($"!!! Документ удалён: {path} !!!");
                 File.Delete(path);
-                // Удаляем файл истории, если он существует
                 string historyPath = GetHistoryFilePath(path);
                 if (File.Exists(historyPath))
                 {
                     File.Delete(historyPath);
+                }
+                string permissionsPath = GetPermissionsFilePath(path);
+                if (File.Exists(permissionsPath))
+                {
+                    File.Delete(permissionsPath);
                 }
             }
             else
@@ -355,48 +413,72 @@ namespace Lab2.Documentn
         public static async Task<Document> OpenDocument(string fileName)
         {
             var data = await _storageStrategy.LoadDocument(fileName);
-            var doc = new Document(data.Type, data.AccessRole);
-            Console.WriteLine($"[DEBUG] Загруженный AccessRole: {doc.AccessRole}");
-            if (Session.CurrentUser == null || (int)Session.CurrentUser.Role < (int)doc.AccessRole)
-            {
-                throw new UnauthorizedAccessException($"Недостаточно прав для открытия документа (требуется {doc.AccessRole}).");
-            }
+            var permissions = await LoadPermissions(fileName);
+            var doc = new Document(data.Type, permissions);
             doc.AppendTextNoNotify(data.Content);
             doc.FilePath = fileName;
-
-            // Загружаем историю
             string historyPath = GetHistoryFilePath(fileName);
             await doc._history.LoadHistoryAsync(historyPath);
-
             return doc;
         }
 
         public static async Task SaveDocument(Document document, string fileName)
         {
-            var data = new DocumentData { Type = document.Type, Content = document.GetOriginalText(), AccessRole = document.AccessRole };
+            var data = new DocumentData
+            {
+                Type = document.Type,
+                Content = document.GetOriginalText(),
+                Permissions = document.GetPermissions()
+            };
             await _storageStrategy.SaveDocument(data, fileName);
             document.FilePath = fileName;
-
-            // Сохраняем историю в отдельный файл
             string historyPath = GetHistoryFilePath(fileName);
             await document._history.SaveHistoryAsync(historyPath);
-
+            await SavePermissions(fileName, data.Permissions);
             document.Notify($"!!! Документ сохранён в: {fileName} !!!");
-        }
-
-        public static void ChangeAccessRole(Document document, UserRole newRole)
-        {
-            if (Session.CurrentUser?.Role != UserRole.Admin)
-            {
-                throw new UnauthorizedAccessException("Только администратор может изменять права доступа.");
-            }
-            document.AccessRole = newRole;
-            document.Notify($"Права доступа изменены на {newRole} пользователем {Session.CurrentUser.Name}");
         }
 
         private static string GetHistoryFilePath(string fileName)
         {
             return Path.ChangeExtension(fileName, ".history.json");
+        }
+
+        private static string GetPermissionsFilePath(string fileName)
+        {
+            return Path.ChangeExtension(fileName, ".permissions.json");
+        }
+
+        private static async Task<Dictionary<string, UserRole>> LoadPermissions(string fileName)
+        {
+            string permissionsPath = GetPermissionsFilePath(fileName);
+            if (!File.Exists(permissionsPath))
+            {
+                return null;
+            }
+            try
+            {
+                string json = await File.ReadAllTextAsync(permissionsPath);
+                return JsonConvert.DeserializeObject<Dictionary<string, UserRole>>(json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при загрузке разрешений: {ex.Message}");
+                return null;
+            }
+        }
+
+        private static async Task SavePermissions(string fileName, Dictionary<string, UserRole> permissions)
+        {
+            string permissionsPath = GetPermissionsFilePath(fileName);
+            try
+            {
+                string json = JsonConvert.SerializeObject(permissions, Formatting.Indented);
+                await File.WriteAllTextAsync(permissionsPath, json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Ошибка при сохранении разрешений: {ex.Message}");
+            }
         }
     }
 }

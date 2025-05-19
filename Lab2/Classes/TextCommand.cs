@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Lab2.Documentn;
+using Lab2.Enums;
 using Lab2.Interfaces;
 
 namespace Lab2.Classes
@@ -23,7 +21,7 @@ namespace Lab2.Classes
 
         public void Execute()
         {
-            if (!Session.PermissionStrategy.CanEdit())
+            if (_document.GetUserPermission(Session.CurrentUser) < UserRole.Editor)
                 throw new InvalidOperationException("You don't have permission to edit.");
             _document.AppendText(_text);
         }
@@ -52,7 +50,7 @@ namespace Lab2.Classes
 
         public void Execute()
         {
-            if (!Session.PermissionStrategy.CanEdit())
+            if (_document.GetUserPermission(Session.CurrentUser) < UserRole.Editor)
                 throw new InvalidOperationException("You don't have permission to edit.");
             _document.InsertText(_charPosition, _text);
         }
@@ -81,7 +79,7 @@ namespace Lab2.Classes
 
         public void Execute()
         {
-            if (!Session.PermissionStrategy.CanEdit())
+            if (_document.GetUserPermission(Session.CurrentUser) < UserRole.Editor)
                 throw new InvalidOperationException("You don't have permission to edit.");
             _document.DeleteText(_fragmentStart, _fragmentCount);
         }

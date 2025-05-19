@@ -1,18 +1,18 @@
 [
   {
-    "Name": "Вьюер Вьюеров",
+    "Name": "User1",
     "Role": 0
   },
   {
-    "Name": "Эдитор Эдиторов",
-    "Role": 1
+    "Name": "User2",
+    "Role": 0
   },
   {
-    "Name": "Админ Админов",
-    "Role": 2
+    "Name": "User3",
+    "Role": 0
   },
   {
-    "Name": "Аудитор Проверялов",
-    "Role": 2
+    "Name": "User4",
+    "Role": 0
   }
 ]

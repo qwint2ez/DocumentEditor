@@ -3,52 +3,60 @@
   "WorkspaceRootPath": "D:\\OOP\\DocumentEditor\\Lab2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\textparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\textparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\textformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\textformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\textcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\textcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\save_load_classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\save_load_classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\istoragestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\istoragestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\userdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:userdata.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\document.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\textcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\textcommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\decorators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\decorators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\localfilestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\localfilestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\terminalsettingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\terminalsettingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\lab2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:lab2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\enums\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:enums\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\save_load_classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\save_load_classes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\documenthistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\documenthistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\copycutpaste.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\copycutpaste.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\decorators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\decorators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\save_load_interfaces.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -59,55 +67,51 @@
       "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\itextfragment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\iobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\iobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\istoragestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\istoragestrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\ipermissionstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\ipermissionstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\enums\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:enums\\documenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\iobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\iobserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\supabaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\supabaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\documenthistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\documenthistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\usermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\interfaces\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:interfaces\\icommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\undoredomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\undoredomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:enums\\userrole.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\textparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\textparser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\copycutpaste.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\copycutpaste.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\textformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\textformatter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3CFF0871-D3B9-4E49-BDEA-5E0B12598461}|..\\Lab2_UnitTests\\Lab2_UnitTests.csproj|d:\\oop\\documenteditor\\lab2_unittests\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\terminalsettingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\terminalsettingsmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\supabaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\supabaseconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\supabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\supabase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\classes\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:classes\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|d:\\oop\\documenteditor\\lab2\\lab2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{023A4156-912B-4E52-B5FA-2A7A28E7F589}|Lab2.csproj|solutionrelative:lab2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3CFF0871-D3B9-4E49-BDEA-5E0B12598461}|..\\Lab2_UnitTests\\Lab2_UnitTests.csproj|d:\\oop\\documenteditor\\lab2_unittests\\test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3CFF0871-D3B9-4E49-BDEA-5E0B12598461}|..\\Lab2_UnitTests\\Lab2_UnitTests.csproj|d:\\oop\\documenteditor\\lab2_unittests\\mstestsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -123,320 +127,361 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Document.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Document.cs",
-              "RelativeDocumentMoniker": "Classes\\Document.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Document.cs",
-              "RelativeToolTip": "Classes\\Document.cs",
-              "ViewState": "AgIAAO4AAAAAAAAAAIAwwAcBAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:16:41.379Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TextParser.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextParser.cs",
-              "RelativeDocumentMoniker": "Classes\\TextParser.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextParser.cs",
-              "RelativeToolTip": "Classes\\TextParser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:18:57.277Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "IStorageStrategy.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IStorageStrategy.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IStorageStrategy.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IStorageStrategy.cs",
-              "RelativeToolTip": "Interfaces\\IStorageStrategy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-24T12:48:26.776Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Save_Load_classes.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Save_Load_classes.cs",
-              "RelativeDocumentMoniker": "Classes\\Save_Load_classes.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Save_Load_classes.cs",
-              "RelativeToolTip": "Classes\\Save_Load_classes.cs",
-              "ViewState": "AgIAAJQAAAAAAAAAAAAlwMUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:18:25.795Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TextFormatter.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextFormatter.cs",
-              "RelativeDocumentMoniker": "Classes\\TextFormatter.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextFormatter.cs",
-              "RelativeToolTip": "Classes\\TextFormatter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:18:52.746Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TextCommand.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextCommand.cs",
-              "RelativeDocumentMoniker": "Classes\\TextCommand.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextCommand.cs",
-              "RelativeToolTip": "Classes\\TextCommand.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABIAAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:49:09.249Z",
+              "Title": "UserData.json",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\UserData.json",
+              "RelativeDocumentMoniker": "UserData.json",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\UserData.json",
+              "RelativeToolTip": "UserData.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-05-19T20:21:36.284Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAKYAAAAAAAAAAAD4v3cAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:19:30.608Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\User.cs",
-              "RelativeDocumentMoniker": "Classes\\User.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\User.cs",
-              "RelativeToolTip": "Classes\\User.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:20:37.609Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Decorators.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Decorators.cs",
-              "RelativeDocumentMoniker": "Classes\\Decorators.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Decorators.cs",
-              "RelativeToolTip": "Classes\\Decorators.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAApwFkAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:20:35.503Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LocalFileStrategy.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\LocalFileStrategy.cs",
-              "RelativeDocumentMoniker": "Classes\\LocalFileStrategy.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\LocalFileStrategy.cs",
-              "RelativeToolTip": "Classes\\LocalFileStrategy.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAD4v1oAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:17:02.645Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TerminalSettingsManager.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TerminalSettingsManager.cs",
-              "RelativeDocumentMoniker": "Classes\\TerminalSettingsManager.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TerminalSettingsManager.cs",
-              "RelativeToolTip": "Classes\\TerminalSettingsManager.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAIAwwEcAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:49:01.777Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Lab2",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Lab2.csproj",
-              "RelativeDocumentMoniker": "Lab2.csproj",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Lab2.csproj",
-              "RelativeToolTip": "Lab2.csproj",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-05-16T13:22:03.445Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Save_Load_interfaces.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\Save_Load_interfaces.cs",
-              "RelativeDocumentMoniker": "Interfaces\\Save_Load_interfaces.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\Save_Load_interfaces.cs",
-              "RelativeToolTip": "Interfaces\\Save_Load_interfaces.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:27:33.427Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "ITextFragment.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ITextFragment.cs",
-              "RelativeDocumentMoniker": "Interfaces\\ITextFragment.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ITextFragment.cs",
-              "RelativeToolTip": "Interfaces\\ITextFragment.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:27:32.677Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "ICommand.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ICommand.cs",
-              "RelativeDocumentMoniker": "Interfaces\\ICommand.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ICommand.cs",
-              "RelativeToolTip": "Interfaces\\ICommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:27:27.534Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "IObserver.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IObserver.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IObserver.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IObserver.cs",
-              "RelativeToolTip": "Interfaces\\IObserver.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:27:29.812Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "IPermissionStrategy.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IPermissionStrategy.cs",
-              "RelativeDocumentMoniker": "Interfaces\\IPermissionStrategy.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IPermissionStrategy.cs",
-              "RelativeToolTip": "Interfaces\\IPermissionStrategy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:27:30.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "DocumentType.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Enums\\DocumentType.cs",
-              "RelativeDocumentMoniker": "Enums\\DocumentType.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Enums\\DocumentType.cs",
-              "RelativeToolTip": "Enums\\DocumentType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:27:22.742Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "SupabaseConfig.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\SupabaseConfig.cs",
-              "RelativeDocumentMoniker": "Classes\\SupabaseConfig.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\SupabaseConfig.cs",
-              "RelativeToolTip": "Classes\\SupabaseConfig.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAmwAsAAADAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-18T12:31:19.31Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "DocumentHistory.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\DocumentHistory.cs",
-              "RelativeDocumentMoniker": "Classes\\DocumentHistory.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\DocumentHistory.cs",
-              "RelativeToolTip": "Classes\\DocumentHistory.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAowF0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:49:02.999Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
               "Title": "UserManager.cs",
               "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\UserManager.cs",
               "RelativeDocumentMoniker": "Classes\\UserManager.cs",
               "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\UserManager.cs",
               "RelativeToolTip": "Classes\\UserManager.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAkwDUAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAiwHMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T14:20:39.405Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "UndoRedoManager.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\UndoRedoManager.cs",
-              "RelativeDocumentMoniker": "Classes\\UndoRedoManager.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\UndoRedoManager.cs",
-              "RelativeToolTip": "Classes\\UndoRedoManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "Document.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Document.cs",
+              "RelativeDocumentMoniker": "Classes\\Document.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Document.cs",
+              "RelativeToolTip": "Classes\\Document.cs",
+              "ViewState": "AgIAAM0BAAAAAAAAAADwv+MBAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:19:05.935Z"
+              "WhenOpened": "2025-04-17T22:16:41.379Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 3,
+              "Title": "TextCommand.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextCommand.cs",
+              "RelativeDocumentMoniker": "Classes\\TextCommand.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextCommand.cs",
+              "RelativeToolTip": "Classes\\TextCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T14:49:09.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAkwGYAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T22:19:30.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LocalFileStrategy.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\LocalFileStrategy.cs",
+              "RelativeDocumentMoniker": "Classes\\LocalFileStrategy.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\LocalFileStrategy.cs",
+              "RelativeToolTip": "Classes\\LocalFileStrategy.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAQwD8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T22:17:02.645Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "UserRole.cs",
               "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Enums\\UserRole.cs",
               "RelativeDocumentMoniker": "Enums\\UserRole.cs",
               "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Enums\\UserRole.cs",
               "RelativeToolTip": "Enums\\UserRole.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAAAsAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-08T11:17:26.992Z"
+              "WhenOpened": "2025-05-08T11:17:26.992Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 7,
+              "Title": "DocumentType.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Enums\\DocumentType.cs",
+              "RelativeDocumentMoniker": "Enums\\DocumentType.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Enums\\DocumentType.cs",
+              "RelativeToolTip": "Enums\\DocumentType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T11:27:22.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\User.cs",
+              "RelativeDocumentMoniker": "Classes\\User.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\User.cs",
+              "RelativeToolTip": "Classes\\User.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAA+wDYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T14:20:37.609Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Save_Load_classes.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Save_Load_classes.cs",
+              "RelativeDocumentMoniker": "Classes\\Save_Load_classes.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Save_Load_classes.cs",
+              "RelativeToolTip": "Classes\\Save_Load_classes.cs",
+              "ViewState": "AgIAALkAAAAAAAAAAAAIwNsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T22:18:25.795Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Session.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Session.cs",
+              "RelativeDocumentMoniker": "Classes\\Session.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Session.cs",
+              "RelativeToolTip": "Classes\\Session.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T22:18:39.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DocumentHistory.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\DocumentHistory.cs",
+              "RelativeDocumentMoniker": "Classes\\DocumentHistory.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\DocumentHistory.cs",
+              "RelativeToolTip": "Classes\\DocumentHistory.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAIwF0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T14:49:02.999Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "CopyCutPaste.cs",
               "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\CopyCutPaste.cs",
               "RelativeDocumentMoniker": "Classes\\CopyCutPaste.cs",
               "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\CopyCutPaste.cs",
               "RelativeToolTip": "Classes\\CopyCutPaste.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAIwHEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:20:34.022Z"
+              "WhenOpened": "2025-04-17T14:20:34.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Decorators.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Decorators.cs",
+              "RelativeDocumentMoniker": "Classes\\Decorators.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Decorators.cs",
+              "RelativeToolTip": "Classes\\Decorators.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAkwFwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T14:20:35.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Save_Load_interfaces.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\Save_Load_interfaces.cs",
+              "RelativeDocumentMoniker": "Interfaces\\Save_Load_interfaces.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\Save_Load_interfaces.cs",
+              "RelativeToolTip": "Interfaces\\Save_Load_interfaces.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T11:27:33.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ITextFragment.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ITextFragment.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ITextFragment.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ITextFragment.cs",
+              "RelativeToolTip": "Interfaces\\ITextFragment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T11:27:32.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IStorageStrategy.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IStorageStrategy.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IStorageStrategy.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IStorageStrategy.cs",
+              "RelativeToolTip": "Interfaces\\IStorageStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-24T12:48:26.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "IPermissionStrategy.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IPermissionStrategy.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IPermissionStrategy.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IPermissionStrategy.cs",
+              "RelativeToolTip": "Interfaces\\IPermissionStrategy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T11:27:30.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IObserver.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IObserver.cs",
+              "RelativeDocumentMoniker": "Interfaces\\IObserver.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\IObserver.cs",
+              "RelativeToolTip": "Interfaces\\IObserver.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T11:27:29.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ICommand.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ICommand.cs",
+              "RelativeDocumentMoniker": "Interfaces\\ICommand.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Interfaces\\ICommand.cs",
+              "RelativeToolTip": "Interfaces\\ICommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T11:27:27.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "UndoRedoManager.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\UndoRedoManager.cs",
+              "RelativeDocumentMoniker": "Classes\\UndoRedoManager.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\UndoRedoManager.cs",
+              "RelativeToolTip": "Classes\\UndoRedoManager.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvyoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T22:19:05.935Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "TextParser.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextParser.cs",
+              "RelativeDocumentMoniker": "Classes\\TextParser.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextParser.cs",
+              "RelativeToolTip": "Classes\\TextParser.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAiwEsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T22:18:57.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "TextFormatter.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextFormatter.cs",
+              "RelativeDocumentMoniker": "Classes\\TextFormatter.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TextFormatter.cs",
+              "RelativeToolTip": "Classes\\TextFormatter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T22:18:52.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "TerminalSettingsManager.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TerminalSettingsManager.cs",
+              "RelativeDocumentMoniker": "Classes\\TerminalSettingsManager.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\TerminalSettingsManager.cs",
+              "RelativeToolTip": "Classes\\TerminalSettingsManager.cs",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAUwH8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T14:49:01.777Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 24,
+              "Title": "SupabaseConfig.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\SupabaseConfig.cs",
+              "RelativeDocumentMoniker": "Classes\\SupabaseConfig.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\SupabaseConfig.cs",
+              "RelativeToolTip": "Classes\\SupabaseConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-18T12:31:19.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Supabase.cs",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Supabase.cs",
+              "RelativeDocumentMoniker": "Classes\\Supabase.cs",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Supabase.cs",
+              "RelativeToolTip": "Classes\\Supabase.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAUwEwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-17T14:20:29.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Lab2.csproj",
+              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Lab2.csproj",
+              "RelativeDocumentMoniker": "Lab2.csproj",
+              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Lab2.csproj",
+              "RelativeToolTip": "Lab2.csproj",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAYAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-05-16T13:22:03.445Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "Test1.cs",
               "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2_UnitTests\\Test1.cs",
               "RelativeDocumentMoniker": "..\\Lab2_UnitTests\\Test1.cs",
@@ -448,31 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "Supabase.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Supabase.cs",
-              "RelativeDocumentMoniker": "Classes\\Supabase.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Supabase.cs",
-              "RelativeToolTip": "Classes\\Supabase.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T14:20:29.333Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "Session.cs",
-              "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Session.cs",
-              "RelativeDocumentMoniker": "Classes\\Session.cs",
-              "ToolTip": "D:\\OOP\\DocumentEditor\\Lab2\\Classes\\Session.cs",
-              "RelativeToolTip": "Classes\\Session.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T22:18:39.24Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "Lab2_UnitTests.csproj",
               "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2_UnitTests\\Lab2_UnitTests.csproj",
               "RelativeDocumentMoniker": "..\\Lab2_UnitTests\\Lab2_UnitTests.csproj",
@@ -480,12 +501,11 @@
               "RelativeToolTip": "..\\Lab2_UnitTests\\Lab2_UnitTests.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-04-17T22:19:20.632Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T22:19:20.632Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "MSTestSettings.cs",
               "DocumentMoniker": "D:\\OOP\\DocumentEditor\\Lab2_UnitTests\\MSTestSettings.cs",
               "RelativeDocumentMoniker": "..\\Lab2_UnitTests\\MSTestSettings.cs",

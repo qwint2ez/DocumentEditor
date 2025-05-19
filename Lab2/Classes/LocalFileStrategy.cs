@@ -4,9 +4,7 @@ using Lab2.Interfaces;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Xml.Serialization;
 
 namespace Lab2.Classes
@@ -19,13 +17,10 @@ namespace Lab2.Classes
             switch (format)
             {
                 case "txt":
-                    // Сохраняем AccessRole в первой строке файла
-                    string txtContent = $"[AccessRole:{data.AccessRole}]\n{data.Content}";
-                    await File.WriteAllTextAsync(fileName, txtContent);
-                    Console.WriteLine($"[DEBUG] Сохранённый AccessRole для .txt: {data.AccessRole}");
+                    await File.WriteAllTextAsync(fileName, data.Content);
                     break;
                 case "json":
-                    string json = JsonConvert.SerializeObject(data);
+                    string json = JsonConvert.SerializeObject(data, Formatting.Indented);
                     await File.WriteAllTextAsync(fileName, json);
                     break;
                 case "xml":
@@ -50,46 +45,8 @@ namespace Lab2.Classes
             {
                 case "txt":
                     string[] lines = await File.ReadAllLinesAsync(fileName);
-                    if (lines.Length == 0)
-                    {
-                        return new DocumentData { Type = DocumentType.PlainText, Content = "", AccessRole = UserRole.Viewer };
-                    }
-
-                    // Первая строка должна содержать AccessRole
-                    string firstLine = lines[0].Trim();
-                    UserRole accessRole = UserRole.Viewer; // По умолчанию
-                    if (firstLine.StartsWith("[AccessRole:") && firstLine.EndsWith("]"))
-                    {
-                        // Извлекаем роль между "[AccessRole:" и "]"
-                        int startIndex = "[AccessRole:".Length;
-                        int endIndex = firstLine.LastIndexOf(']');
-                        if (endIndex > startIndex)
-                        {
-                            string roleStr = firstLine.Substring(startIndex, endIndex - startIndex).Trim();
-                            // Удаляем возможные лишние двоеточия
-                            roleStr = roleStr.TrimStart(':').Trim();
-                            if (Enum.TryParse<UserRole>(roleStr, true, out var parsedRole))
-                            {
-                                accessRole = parsedRole;
-                            }
-                            else
-                            {
-                                Console.WriteLine($"[DEBUG] Не удалось распарсить AccessRole из строки: {roleStr}. Установлен Viewer по умолчанию.");
-                            }
-                        }
-                        else
-                        {
-                            Console.WriteLine($"[DEBUG] Неверный формат AccessRole: {firstLine}. Установлен Viewer по умолчанию.");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine($"[DEBUG] Первая строка не содержит AccessRole: {firstLine}. Установлен Viewer по умолчанию.");
-                    }
-
-                    // Остальные строки — содержимое
-                    string txtContent = string.Join("\n", lines.Skip(1));
-                    return new DocumentData { Type = DocumentType.PlainText, Content = txtContent, AccessRole = accessRole };
+                    string txtContent = lines.Length > 0 ? string.Join("\n", lines) : "";
+                    return new DocumentData { Type = DocumentType.PlainText, Content = txtContent, Permissions = new Dictionary<string, UserRole>() };
                 case "json":
                     string json = await File.ReadAllTextAsync(fileName);
                     return JsonConvert.DeserializeObject<DocumentData>(json);
